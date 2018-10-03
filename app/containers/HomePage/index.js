@@ -10,16 +10,29 @@
  */
 
 import React from 'react';
-import { FormattedMessage } from 'react-intl';
-import messages from './messages';
+import { Link } from 'react-router-dom';
+import styled from 'styled-components';
 
+const Button = styled.button`
+  background: ${props => (props.primary ? 'goldenrod' : 'black')};
+  color: ${props => (props.primary ? 'white' : 'white')};
+  height: 80px;
+  width: 200px;
+  border-raidus: 4%;
+  margin: 10px;
+`;
 /* eslint-disable react/prefer-stateless-function */
 export default class HomePage extends React.PureComponent {
   render() {
     return (
-      <h1>
-        <FormattedMessage {...messages.header} />
-      </h1>
+      <div>
+        <Link to="/posts/new">
+          <Button primary>Click Here to make a new post</Button>
+        </Link>
+        <Link to="/posts">
+          <Button>Click Here to see all posts</Button>
+        </Link>
+      </div>
     );
   }
 }
