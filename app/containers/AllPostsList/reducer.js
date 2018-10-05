@@ -9,16 +9,16 @@ import {
   LOAD_POSTS_ERROR,
   DEFAULT_ACTION,
 } from './constants';
-import { fromJS } from 'immutable';
+import { fromJS, toJS } from 'immutable';
 
 export const initialState = fromJS({
-  posts: ['hello'],
+  posts: [],
   loading: false,
   error: true,
 });
 
 function allPostsListReducer(state = initialState, action) {
-  console.log(action);
+  console.log(state.toJS());
   switch (action.type) {
     case LOAD_POSTS:
       return state.set('loading', true).set('error', false);

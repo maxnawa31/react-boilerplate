@@ -22,5 +22,12 @@ const makeSelectAllPostsList = () =>
 const makeSelectAllPostsListSelector = () =>
   createSelector(selectAllPostsListDomain, substate => substate.get('posts'));
 
+const makeSelectLoadingSelector = () =>
+  createSelector(selectAllPostsListDomain, substate => substate.get('loading'));
+
 export default makeSelectAllPostsList;
-export { selectAllPostsListDomain, makeSelectAllPostsListSelector };
+export {
+  selectAllPostsListDomain,
+  makeSelectAllPostsListSelector,
+  makeSelectLoadingSelector,
+};

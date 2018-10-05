@@ -12,10 +12,14 @@ import { compose } from 'redux';
 import { Posts } from '../../components/Posts';
 import injectSaga from 'utils/injectSaga';
 import injectReducer from 'utils/injectReducer';
-import { makeSelectAllPostsListSelector } from './selectors';
+import {
+  makeSelectAllPostsListSelector,
+  makeSelectLoadingSelector,
+} from './selectors';
 import reducer from './reducer';
 import saga from './saga';
 import { loadPosts } from './actions';
+import { Loader } from '../../components/Loader';
 /* eslint-disable react/prefer-stateless-function */
 export class AllPostsList extends React.Component {
   componentDidMount() {
@@ -23,20 +27,23 @@ export class AllPostsList extends React.Component {
   }
 
   render() {
-    let posts;
-    if (Array.isArray(this.props.posts)) {
-      posts = this.props.posts;
-    }
-    return <div>{posts !== undefined ? <Posts posts={posts} /> : ''}</div>;
+    return (
+      <div>
+        {this.props.loading ? <Loader /> : <Posts posts={this.props.posts} />}
+      </div>
+    );
   }
 }
 
-// AllPostsList.propTypes = {
-//   dispatch: PropTypes.func.isRequired,
-// };
+AllPostsList.propTypes = {
+  loadPosts: PropTypes.func.isRequired,
+  posts: PropTypes.oneOfType([PropTypes.array, PropTypes.object]),
+  loading: PropTypes.bool.isRequired,
+};
 
 const mapStateToProps = createStructuredSelector({
   posts: makeSelectAllPostsListSelector(),
+  loading: makeSelectLoadingSelector(),
 });
 
 function mapDispatchToProps(dispatch) {
