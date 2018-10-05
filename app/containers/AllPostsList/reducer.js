@@ -18,7 +18,7 @@ export const initialState = fromJS({
 });
 
 function allPostsListReducer(state = initialState, action) {
-  console.log(state, action);
+  console.log(action);
   switch (action.type) {
     case LOAD_POSTS:
       return state.set('loading', true).set('error', false);

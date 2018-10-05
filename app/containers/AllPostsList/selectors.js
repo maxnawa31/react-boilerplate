@@ -19,5 +19,8 @@ const selectAllPostsListDomain = state =>
 const makeSelectAllPostsList = () =>
   createSelector(selectAllPostsListDomain, substate => substate.toJS());
 
+const makeSelectAllPostsListSelector = () =>
+  createSelector(selectAllPostsListDomain, substate => substate.get('posts'));
+
 export default makeSelectAllPostsList;
-export { selectAllPostsListDomain };
+export { selectAllPostsListDomain, makeSelectAllPostsListSelector };

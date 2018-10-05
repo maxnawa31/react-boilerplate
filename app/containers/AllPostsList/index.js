@@ -9,20 +9,25 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 import { compose } from 'redux';
-
+import { Posts } from '../../components/Posts';
 import injectSaga from 'utils/injectSaga';
 import injectReducer from 'utils/injectReducer';
-import makeSelectAllPostsList from './selectors';
+import { makeSelectAllPostsListSelector } from './selectors';
 import reducer from './reducer';
 import saga from './saga';
 import { loadPosts } from './actions';
 /* eslint-disable react/prefer-stateless-function */
 export class AllPostsList extends React.Component {
   componentDidMount() {
-    this.props.loadPosts('http://localhost:5000');
+    this.props.loadPosts();
   }
+
   render() {
-    return <div />;
+    let posts;
+    if (Array.isArray(this.props.posts)) {
+      posts = this.props.posts;
+    }
+    return <div>{posts !== undefined ? <Posts posts={posts} /> : ''}</div>;
   }
 }
 
@@ -30,12 +35,13 @@ export class AllPostsList extends React.Component {
 //   dispatch: PropTypes.func.isRequired,
 // };
 
-const mapStateToProps = state => ({
-  posts: state.posts,
+const mapStateToProps = createStructuredSelector({
+  posts: makeSelectAllPostsListSelector(),
 });
+
 function mapDispatchToProps(dispatch) {
   return {
-    loadPosts: url => dispatch(loadPosts(url)),
+    loadPosts: () => dispatch(loadPosts()),
   };
 }
 

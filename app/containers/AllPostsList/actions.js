@@ -4,19 +4,24 @@
  *
  */
 
-import { LOAD_POSTS, LOAD_POSTS_SUCCESS, LOAD_POSTS_ERROR } from './constants';
-import { DEFAULT_ACTION } from './constants';
+import {
+  LOAD_POSTS,
+  LOAD_POSTS_SUCCESS,
+  LOAD_POSTS_ERROR,
+  DEFAULT_ACTION,
+} from './constants';
 
-export function loadPosts(url) {
-  console.log(url);
+export function loadPosts() {
+  console.log('inside loadPosts');
   return {
     type: LOAD_POSTS,
   };
 }
 
-export function loadPostsSuccess() {
+export function loadPostsSuccess(posts) {
   return {
     type: LOAD_POSTS_SUCCESS,
+    posts,
   };
 }
 
