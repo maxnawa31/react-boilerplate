@@ -27,11 +27,8 @@ export class AllPostsList extends React.Component {
   }
 
   render() {
-    return (
-      <div>
-        {this.props.loading ? <Loader /> : <Posts posts={this.props.posts} />}
-      </div>
-    );
+    const { loading, posts } = this.props;
+    return <div>{loading ? <Loader /> : <Posts posts={posts} />}</div>;
   }
 }
 

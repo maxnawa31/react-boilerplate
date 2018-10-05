@@ -1,4 +1,0 @@
-export const LOAD_POSTS = 'LOAD_POSTS';
-export const LOAD_POSTS_SUCCESS = 'LOAD_POSTS_SUCCESS';
-export const LOAD_POSTS_ERROR = 'LOAD_POSTS_ERROR';
-export const SELECT_POST = 'SELECT_POST';
