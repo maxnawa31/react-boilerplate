@@ -12,7 +12,6 @@ import {
 } from './constants';
 
 export function loadPosts() {
-  console.log('inside loadPosts');
   return {
     type: LOAD_POSTS,
   };
@@ -25,9 +24,10 @@ export function loadPostsSuccess(posts) {
   };
 }
 
-export function loadPostsError() {
+export function loadPostsError(error) {
   return {
     type: LOAD_POSTS_ERROR,
+    error,
   };
 }
 export function defaultAction() {

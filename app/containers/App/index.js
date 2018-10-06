@@ -17,14 +17,14 @@ import { Switch, Route } from 'react-router-dom';
 import HomePage from 'containers/HomePage/Loadable';
 import NotFoundPage from 'containers/NotFoundPage/Loadable';
 import AllPostsList from 'containers/AllPostsList';
-
+import NewPost from 'containers/NewPost';
 export default function App() {
   return (
     <div>
       <Switch>
         <Route exact path="/" component={HomePage} />
         <Route exact path="/posts" component={AllPostsList} />
-        <Route exact path="/posts/new" component={NotFoundPage} />
+        <Route exact path="/posts/new" component={NewPost} />
       </Switch>
     </div>
   );

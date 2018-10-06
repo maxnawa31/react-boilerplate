@@ -9,7 +9,7 @@ import {
   LOAD_POSTS_ERROR,
   DEFAULT_ACTION,
 } from './constants';
-import { fromJS, toJS } from 'immutable';
+import { fromJS } from 'immutable';
 
 export const initialState = fromJS({
   posts: [],

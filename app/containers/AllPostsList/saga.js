@@ -1,14 +1,19 @@
-import { put, takeEvery, all, call, takeLatest } from 'redux-saga/effects';
+import { put, takeLatest } from 'redux-saga/effects';
 import axios from 'axios';
-import { LOAD_POSTS, LOAD_POSTS_SUCCESS } from './constants';
+import { loadPostsError, loadPostsSuccess } from './actions';
+import { LOAD_POSTS } from './constants';
 
-export function* fetchPostsAsync() {
-  const response = yield axios.get('http://localhost:5000');
-  yield put({ type: LOAD_POSTS_SUCCESS, posts: response.data });
+function* fetchPostsAsync() {
+  try {
+    const response = yield axios.get('http://localhost:5000');
+    yield put(loadPostsSuccess(response.data));
+  } catch (err) {
+    yield put(loadPostsError(err));
+  }
 }
 
 export default function* watchLoadPostsAsync() {
-  yield takeEvery(LOAD_POSTS, fetchPostsAsync);
+  yield takeLatest(LOAD_POSTS, fetchPostsAsync);
 }
 
 // export default function* postsData() {
