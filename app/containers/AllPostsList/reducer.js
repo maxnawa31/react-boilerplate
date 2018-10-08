@@ -3,13 +3,13 @@
  * AllPostsList reducer
  *
  */
+import { fromJS } from 'immutable';
 import {
   LOAD_POSTS,
   LOAD_POSTS_SUCCESS,
   LOAD_POSTS_ERROR,
   DEFAULT_ACTION,
 } from './constants';
-import { fromJS } from 'immutable';
 
 export const initialState = fromJS({
   posts: [],

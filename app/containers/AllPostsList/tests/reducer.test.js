@@ -1,4 +1,3 @@
-import { fromJS, Iterable } from 'immutable';
 import allPostsListReducer, { initialState } from '../reducer';
 import { LOAD_POSTS, LOAD_POSTS_SUCCESS, LOAD_POSTS_ERROR } from '../constants';
 
@@ -30,10 +29,12 @@ describe('AllPost Reducer', () => {
         },
       ],
     };
+
     const expectedState = initialState
       .set('loading', false)
       .set('posts', response.data)
       .set('error', false);
+
     expect(
       allPostsListReducer(initialState, {
         type: LOAD_POSTS_SUCCESS,
