@@ -3,10 +3,10 @@
  */
 
 /* eslint-disable redux-saga/yield-effects */
-import { take, call, put, select, takeLatest } from 'redux-saga/effects';
+import { put, takeLatest } from 'redux-saga/effects';
 import { fetchPostsAsync, watchLoadPostsAsync } from '../saga';
 import { loadPostsError, loadPostsSuccess } from '../actions';
-import { LOAD_POSTS_ERROR, LOAD_POSTS_SUCCESS, LOAD_POSTS } from '../constants';
+import { LOAD_POSTS } from '../constants';
 // const generator = defaultSaga();
 
 describe('defaultSaga Saga', () => {
