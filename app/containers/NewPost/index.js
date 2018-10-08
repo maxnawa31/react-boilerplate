@@ -24,7 +24,7 @@ export class NewPost extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      newPost: '',
+      text: '',
     };
   }
 
@@ -39,7 +39,7 @@ export class NewPost extends React.Component {
   render() {
     return (
       <form onSubmit={this.onSubmit}>
-        <Input onChange={this.onChange} type="text" name="newPost" />
+        <Input onChange={this.onChange} type="text" name="text" />
         <button>Submit</button>
       </form>
     );

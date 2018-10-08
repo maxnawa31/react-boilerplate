@@ -12,7 +12,7 @@ export function* fetchPostsAsync() {
   }
 }
 
-export function* watchLoadPostsAsync() {
+export default function* watchLoadPostsAsync() {
   yield takeLatest(LOAD_POSTS, fetchPostsAsync);
 }
 

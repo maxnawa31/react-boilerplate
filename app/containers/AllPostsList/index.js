@@ -5,6 +5,7 @@
  */
 
 import React from 'react';
+import { Link } from 'react-router-dom';
 import injectSaga from 'utils/injectSaga';
 import injectReducer from 'utils/injectReducer';
 import PropTypes from 'prop-types';
@@ -28,7 +29,12 @@ export class AllPostsList extends React.Component {
 
   render() {
     const { loading, posts } = this.props;
-    return <div>{loading ? <Loader /> : <Posts posts={posts} />}</div>;
+    return (
+      <div>
+        {loading ? <Loader /> : <Posts posts={posts} />}
+        <Link to="/posts/new">Click here to add another post</Link>
+      </div>
+    );
   }
 }
 
