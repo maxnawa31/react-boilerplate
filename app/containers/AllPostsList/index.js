@@ -5,13 +5,13 @@
  */
 
 import React from 'react';
+import injectSaga from 'utils/injectSaga';
+import injectReducer from 'utils/injectReducer';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 import { compose } from 'redux';
 import { Posts } from '../../components/Posts';
-import injectSaga from 'utils/injectSaga';
-import injectReducer from 'utils/injectReducer';
 import {
   makeSelectAllPostsListSelector,
   makeSelectLoadingSelector,
@@ -43,7 +43,7 @@ const mapStateToProps = createStructuredSelector({
   loading: makeSelectLoadingSelector(),
 });
 
-function mapDispatchToProps(dispatch) {
+export function mapDispatchToProps(dispatch) {
   return {
     loadPosts: () => dispatch(loadPosts()),
   };
