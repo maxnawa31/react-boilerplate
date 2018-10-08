@@ -1,0 +1,41 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`defaultSaga Saga should call loadPostError if api call is not successful 1`] = `
+GeneratorFunctionPrototype {
+  "_invoke": [Function],
+}
+`;
+
+exports[`defaultSaga Saga should call loadPostError if api call is not successful 2`] = `Promise {}`;
+
+exports[`defaultSaga Saga should dispatch data if api call is successful 1`] = `
+GeneratorFunctionPrototype {
+  "_invoke": [Function],
+}
+`;
+
+exports[`defaultSaga Saga should dispatch data if api call is successful 2`] = `Promise {}`;
+
+exports[`defaultSaga Saga should dispatch data if api call is successful 3`] = `
+Object {
+  "@@redux-saga/IO": true,
+  "PUT": Object {
+    "action": Object {
+      "posts": Array [
+        Object {
+          "created_at": "2018-10-06T00:33:39.788Z",
+          "id": 235,
+          "text": "sdfsfs",
+        },
+        Object {
+          "created_at": "2018-10-06T00:36:49.251Z",
+          "id": 236,
+          "text": "sfsdfs",
+        },
+      ],
+      "type": "app/AllPostsList/LOAD_POSTS_SUCCESS",
+    },
+    "channel": null,
+  },
+}
+`;

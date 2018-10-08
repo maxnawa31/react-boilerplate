@@ -7,12 +7,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { createStructuredSelector } from 'reselect';
 import { compose } from 'redux';
 import { newPost } from './actions';
 import injectSaga from 'utils/injectSaga';
 import injectReducer from 'utils/injectReducer';
-import makeSelectNewPost from './selectors';
 import reducer from './reducer';
 import saga from './saga';
 import styled from 'styled-components';
@@ -26,7 +24,7 @@ export class NewPost extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      text: '',
+      newPost: '',
     };
   }
 
@@ -40,13 +38,10 @@ export class NewPost extends React.Component {
   };
   render() {
     return (
-      <div>
-        hello
-        <form onSubmit={this.onSubmit}>
-          <Input onChange={this.onChange} type="text" name="text" />
-          <button>Submit</button>
-        </form>
-      </div>
+      <form onSubmit={this.onSubmit}>
+        <Input onChange={this.onChange} type="text" name="newPost" />
+        <button>Submit</button>
+      </form>
     );
   }
 }

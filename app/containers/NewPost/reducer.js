@@ -19,7 +19,6 @@ export const initialState = fromJS({
 });
 
 function newPostReducer(state = initialState, action) {
-  console.log(state, action);
   switch (action.type) {
     case NEW_POST:
       return state

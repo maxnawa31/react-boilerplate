@@ -3,7 +3,7 @@ import axios from 'axios';
 import { loadPostsError, loadPostsSuccess } from './actions';
 import { LOAD_POSTS } from './constants';
 
-function* fetchPostsAsync() {
+export function* fetchPostsAsync() {
   try {
     const response = yield axios.get('http://localhost:5000');
     yield put(loadPostsSuccess(response.data));
@@ -12,7 +12,7 @@ function* fetchPostsAsync() {
   }
 }
 
-export default function* watchLoadPostsAsync() {
+export function* watchLoadPostsAsync() {
   yield takeLatest(LOAD_POSTS, fetchPostsAsync);
 }
 

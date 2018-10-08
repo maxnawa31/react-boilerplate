@@ -25,7 +25,6 @@ export function defaultAction() {
 }
 
 export function newPostSuccess() {
-  console.log('inside post success');
   return {
     type: NEW_POST_SUCCESS,
   };
