@@ -21,6 +21,7 @@ import reducer from './reducer';
 import saga from './saga';
 import { loadPosts } from './actions';
 import { Loader } from '../../components/Loader';
+import { StyledLink } from '../NewPost/index';
 /* eslint-disable react/prefer-stateless-function */
 export class AllPostsList extends React.Component {
   componentDidMount() {
@@ -32,7 +33,7 @@ export class AllPostsList extends React.Component {
     return (
       <div>
         {loading ? <Loader /> : <Posts posts={posts} />}
-        <Link to="/posts/new">Click here to add another post</Link>
+        <StyledLink to="/posts/new">Click here to add another post</StyledLink>
       </div>
     );
   }

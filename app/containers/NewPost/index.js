@@ -5,18 +5,43 @@
  */
 
 import React from 'react';
+import styled from 'styled-components';
+import injectReducer from 'utils/injectReducer';
+import injectSaga from 'utils/injectSaga';
+import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 import { newPost } from './actions';
-import injectSaga from 'utils/injectSaga';
-import injectReducer from 'utils/injectReducer';
 import reducer from './reducer';
 import saga from './saga';
-import styled from 'styled-components';
+
+const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: 2%;
+`;
 
 const Input = styled.input`
   border: 1px solid black;
+`;
+
+const Form = styled.form`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 30%;
+  margin: 0 auto;
+`;
+const Button = styled.button`
+  border: 1px solid black;
+  width: 100%;
+  margin-top: 2%;
+`;
+export const StyledLink = styled(Link)`
+  margin: 0 auto;
+  color: black;
 `;
 
 /* eslint-disable react/prefer-stateless-function */
@@ -38,10 +63,18 @@ export class NewPost extends React.Component {
   };
   render() {
     return (
-      <form onSubmit={this.onSubmit}>
-        <Input onChange={this.onChange} type="text" name="text" />
-        <button>Submit</button>
-      </form>
+      <Container>
+        <Form onSubmit={this.onSubmit}>
+          <Input
+            placeholder="Enter text here"
+            onChange={this.onChange}
+            type="text"
+            name="text"
+          />
+          <Button>Submit</Button>
+        </Form>
+        <StyledLink to="/posts">Click here to see all posts</StyledLink>
+      </Container>
     );
   }
 }
