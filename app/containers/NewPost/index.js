@@ -15,12 +15,10 @@ import { compose } from 'redux';
 import { newPost } from './actions';
 import reducer from './reducer';
 import saga from './saga';
-
+import { StyledButton } from '../HomePage/index';
 const Container = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
   margin-top: 2%;
+  text-align: center;
 `;
 
 const Input = styled.input`
@@ -73,7 +71,9 @@ export class NewPost extends React.Component {
           />
           <Button>Submit</Button>
         </Form>
-        <StyledLink to="/posts">Click here to see all posts</StyledLink>
+        <Link to="/posts">
+          <StyledButton allPosts>Click here to see all posts</StyledButton>
+        </Link>
       </Container>
     );
   }
