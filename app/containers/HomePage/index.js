@@ -22,17 +22,14 @@ export const StyledButton = styled.button`
   margin: ${props => (props.allPosts ? '10px' : '0 auto')};
 `;
 /* eslint-disable react/prefer-stateless-function */
-export default class HomePage extends React.PureComponent {
-  render() {
-    return (
-      <div>
-        <Link to="/posts/new">
-          <StyledButton newPost>Click Here to make a new post</StyledButton>
-        </Link>
-        <Link to="/posts">
-          <StyledButton allPosts>Click Here to see all posts</StyledButton>
-        </Link>
-      </div>
-    );
-  }
-}
+const HomePage = props => (
+  <div>
+    <Link to="/posts/new">
+      <StyledButton newPost>Click Here to make a new post</StyledButton>
+    </Link>
+    <Link to="/posts">
+      <StyledButton allPosts>Click Here to see all posts</StyledButton>
+    </Link>
+  </div>
+);
+export default HomePage;
