@@ -1,11 +1,10 @@
 // import { fromJS } from 'immutable';
+import { fromJS } from 'immutable';
 import {
-  selectAllPostsListDomain,
   makeSelectAllPostsListSelector,
   makeSelectLoadingSelector,
 } from '../selectors';
-import { initialState } from '../reducer';
-import { fromJS } from 'immutable';
+
 describe('AllPostsList Selectors', () => {
   it('Should filter out the posts from state', () => {
     const postsSelector = makeSelectAllPostsListSelector();
